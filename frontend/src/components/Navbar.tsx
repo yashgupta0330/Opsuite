@@ -469,8 +469,7 @@ const Navbar = ({ initialSolutions, initialModuleData }: NavbarProps) => {
   ];
 
   const desktopMiddleLinks: TopLevelLink[] = [
-    { href: "/industries", label: "Industries" },
-    { href: "/blogs", label: "Blogs" },
+    { href: "/blogs", label: "Resources" },
   ];
 
   const mobilePrimaryLinks: TopLevelLink[] = [
@@ -654,7 +653,7 @@ ${navigationState !== "closed" ? "bg-white" : isScrolled ? "backdrop-blur-xl sat
 
                       <div className="mt-auto border-l border-white/20 pl-4 italic">
                         <p className="text-[12px] text-gray-500 leading-normal">
-                          "Systematic tracking of every moving part."
+                          &ldquo;Systematic tracking of every moving part.&rdquo;
                         </p>
                       </div>
                     </div>
