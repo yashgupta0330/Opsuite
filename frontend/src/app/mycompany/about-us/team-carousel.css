@@ -1,0 +1,18 @@
+.team-swiper {
+  width: 100%;
+}
+
+.team-swiper .swiper-wrapper {
+  align-items: stretch;
+  transition-timing-function: ease-out;
+}
+
+.team-swiper .swiper-slide {
+  height: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.team-swiper .swiper-slide > div {
+  height: 100%;
+}

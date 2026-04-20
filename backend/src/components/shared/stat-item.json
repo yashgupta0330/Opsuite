@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_stat_items",
+  "info": {
+    "displayName": "Stat Item",
+    "description": "Case study statistics item"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

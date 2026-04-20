@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_sections_contact_sections",
+    "info": {
+        "displayName": "Contact Section",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "sectionTitle": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "featuresList": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.feature-point"
+        }
+    }
+}

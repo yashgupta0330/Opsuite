@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_shared_feature_points",
+    "info": {
+        "displayName": "Feature Point",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "icon": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "collectionName": "components_sections_heroes",
+    "info": {
+        "displayName": "Hero",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "heading": {
+            "type": "string"
+        },
+        "subheading": {
+            "type": "string"
+        },
+        "description": {
+            "type": "richtext"
+        },
+        "primaryButtonText": {
+            "type": "string"
+        },
+        "primaryButtonLink": {
+            "type": "string"
+        },
+        "image": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}

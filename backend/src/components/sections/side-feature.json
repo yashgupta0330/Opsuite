@@ -1,0 +1,38 @@
+{
+    "collectionName": "components_sections_side_features",
+    "info": {
+        "displayName": "Side Feature",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "sectionTitle": {
+            "type": "string"
+        },
+        "sectionDescription": {
+            "type": "text"
+        },
+        "image": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        },
+        "imagePosition": {
+            "type": "enumeration",
+            "enum": [
+                "left",
+                "right"
+            ]
+        },
+        "features": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.feature-point"
+        }
+    }
+}

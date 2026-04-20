@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_sections_feature_grids",
+    "info": {
+        "displayName": "Feature Grid",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "sectionTitle": {
+            "type": "string"
+        },
+        "sectionDescription": {
+            "type": "text"
+        },
+        "cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.grid-card"
+        }
+    }
+}

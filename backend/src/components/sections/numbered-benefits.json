@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_sections_numbered_benefits",
+    "info": {
+        "displayName": "Numbered Benefits",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "sectionTitle": {
+            "type": "string"
+        },
+        "sectionDescription": {
+            "type": "text"
+        },
+        "items": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.benefit-item"
+        }
+    }
+}

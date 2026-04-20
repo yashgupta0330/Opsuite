@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_highlight_items",
+  "info": {
+    "displayName": "Highlight Item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

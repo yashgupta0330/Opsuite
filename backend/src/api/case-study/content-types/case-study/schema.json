@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_studies",
+  "info": {
+    "singularName": "case-study",
+    "pluralName": "case-studies",
+    "displayName": "Case Study",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "tag": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroCardImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "sidebarInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sidebar-info"
+    },
+    "statistics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat-item"
+    },
+    "challenges": {
+      "type": "richtext"
+    },
+    "solution": {
+      "type": "richtext"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero",
+        "sections.feature-highlights",
+        "sections.numbered-benefits"
+      ]
+    }
+  }
+}

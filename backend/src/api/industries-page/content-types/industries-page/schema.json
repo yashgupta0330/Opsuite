@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "industries_pages",
+  "info": {
+    "singularName": "industries-page",
+    "pluralName": "industries-pages",
+    "displayName": "Industries Page",
+    "description": "Industries landing page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Industries"
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "themeColor": {
+      "type": "enumeration",
+      "default": "Orange",
+      "enum": [
+        "Brand",
+        "Orange",
+        "Purple",
+        "Yellow"
+      ]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero",
+        "sections.feature-highlights",
+        "sections.side-feature",
+        "sections.feature-grid",
+        "sections.numbered-benefits",
+        "sections.testimonial-banner",
+        "sections.contact-section",
+        "sections.advantage-section"
+      ]
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    }
+  }
+}

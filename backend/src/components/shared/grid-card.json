@@ -1,0 +1,34 @@
+{
+    "collectionName": "components_shared_grid_cards",
+    "info": {
+        "displayName": "Grid Card",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "image": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        },
+        "mediaType": {
+            "type": "enumeration",
+            "enum": [
+                "icon",
+                "image"
+            ],
+            "default": "image"
+        }
+    }
+}

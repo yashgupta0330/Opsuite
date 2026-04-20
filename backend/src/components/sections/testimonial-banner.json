@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_testimonial_banners",
+  "info": {
+    "displayName": "Testimonial Banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "testimonial": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::testimonial.testimonial"
+    }
+  }
+}

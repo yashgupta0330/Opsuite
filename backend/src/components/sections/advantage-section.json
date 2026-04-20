@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_advantage_sections",
+  "info": {
+    "displayName": "Advantage section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

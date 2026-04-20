@@ -1,0 +1,13 @@
+.industries-swiper {
+  width: 100%;
+}
+
+.industries-swiper .swiper-slide {
+  height: auto;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Custom transitions and styles for the cards inside slides */
+.industries-swiper .swiper-slide > div {
+  height: 326px; 
+}

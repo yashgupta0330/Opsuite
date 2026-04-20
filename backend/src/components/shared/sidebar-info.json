@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_sidebar_infos",
+  "info": {
+    "displayName": "Sidebar Info",
+    "description": "Case study sidebar metadata"
+  },
+  "options": {},
+  "attributes": {
+    "industry": {
+      "type": "richtext"
+    },
+    "location": {
+      "type": "richtext"
+    },
+    "size": {
+      "type": "richtext"
+    }
+  }
+}
