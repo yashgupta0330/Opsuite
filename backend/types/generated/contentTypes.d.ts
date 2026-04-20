@@ -679,58 +679,6 @@ export interface ApiModuleModule extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPlatformPlatform extends Struct.CollectionTypeSchema {
-  collectionName: 'platforms';
-  info: {
-    description: '';
-    displayName: 'Modules';
-    pluralName: 'platforms';
-    singularName: 'platform';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Schema.Attribute.Enumeration<
-      ['Core Capabilities', 'Technology & Infrastructure']
-    > &
-      Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::platform.platform'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    rank: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<100>;
-    sections: Schema.Attribute.DynamicZone<
-      [
-        'sections.hero',
-        'sections.feature-highlights',
-        'sections.side-feature',
-        'sections.feature-grid',
-        'sections.numbered-benefits',
-        'sections.testimonial-banner',
-        'sections.contact-section',
-        'sections.advantage-section',
-      ]
-    >;
-    shortDescription: Schema.Attribute.Text;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    themeColor: Schema.Attribute.Enumeration<
-      ['Brand', 'Orange', 'Purple', 'Yellow']
-    > &
-      Schema.Attribute.DefaultTo<'Brand'>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiServicePageServicePage extends Struct.CollectionTypeSchema {
   collectionName: 'service_pages';
   info: {
@@ -1344,7 +1292,6 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::module.module': ApiModuleModule;
-      'api::platform.platform': ApiPlatformPlatform;
       'api::service-page.service-page': ApiServicePageServicePage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
