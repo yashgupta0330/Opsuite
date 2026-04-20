@@ -7,7 +7,7 @@ export interface ServicePage {
     rank?: number;
 }
 
-export interface PlatformData {
+export interface ModuleData {
     core: ServicePage[];
     tech: ServicePage[];
 }
@@ -68,14 +68,14 @@ const _getSolutions = cache(async (): Promise<SolutionsData> => {
     }
 });
 
-export async function getPlatform(): Promise<PlatformData> {
-    return _getPlatform();
+export async function getModules(): Promise<ModuleData> {
+    return _getModules();
 }
 
-const _getPlatform = cache(async (): Promise<PlatformData> => {
+const _getModules = cache(async (): Promise<ModuleData> => {
     try {
-        const url = getStrapiURL('/platforms?fields[0]=title&fields[1]=slug&fields[2]=shortDescription&fields[3]=category&fields[4]=rank&pagination[pageSize]=100');
-        console.log(`[FETCH_START] getPlatform | Env: ${typeof window === 'undefined' ? 'Server' : 'Client'} | URL: ${url}`);
+        const url = getStrapiURL('/modules?fields[0]=title&fields[1]=slug&fields[2]=shortDescription&fields[3]=category&fields[4]=rank&pagination[pageSize]=100');
+        console.log(`[FETCH_START] getModules | Env: ${typeof window === 'undefined' ? 'Server' : 'Client'} | URL: ${url}`);
         
         const fetchOptions: RequestInit = {
             next: { revalidate: 60 }
@@ -83,10 +83,10 @@ const _getPlatform = cache(async (): Promise<PlatformData> => {
 
 
         const res = await fetch(url, fetchOptions);
-        console.log(`[FETCH_SUCCESS] getPlatform | Status: ${res.status}`);
+        console.log(`[FETCH_SUCCESS] getModules | Status: ${res.status}`);
 
         if (!res.ok) {
-            console.error("Failed to fetch platform items:", res.statusText);
+            console.error("Failed to fetch modules items:", res.statusText);
             return { core: [], tech: [] };
         }
 
@@ -110,7 +110,7 @@ const _getPlatform = cache(async (): Promise<PlatformData> => {
 
         return { core, tech };
     } catch (error) {
-        console.error("Error fetching platform:", error);
+        console.error("Error fetching modules:", error);
         return { core: [], tech: [] };
     }
 });

@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import Navbar, { AnnouncementBanner } from "../components/Navbar";
 import CookieConsent from "../components/CookieConsent";
 import { getStrapiURL } from "@/lib/strapi-helper";
-import { getSolutions, getPlatform } from "@/lib/data";
+import { getSolutions, getModules } from "@/lib/data";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -69,18 +69,18 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const solutions = await getSolutions();
-  const platformData = await getPlatform();
+  const moduleData = await getModules();
 
   return (
     <html lang="en">
       <body className={` ${inter.variable} antialiased`}>
         <AnnouncementBanner />
-        <Navbar initialSolutions={solutions} initialPlatformData={platformData} />
+        <Navbar initialSolutions={solutions} initialModuleData={moduleData} />
         <main>
           {children}
           <GlobalContactSection />
         </main>
-        <Footer initialSolutions={solutions} initialPlatformData={platformData} />
+        <Footer initialSolutions={solutions} initialModuleData={moduleData} />
         <CookieConsent />
       </body>
     </html>

@@ -1,18 +1,18 @@
-import { PlatformData, SolutionsData } from "@/lib/data";
+import { ModuleData, SolutionsData } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 
 interface FooterProps {
   initialSolutions: SolutionsData;
-  initialPlatformData: PlatformData;
+  initialModuleData: ModuleData;
 }
 
-export default function Footer({ initialSolutions, initialPlatformData }: FooterProps) {
+export default function Footer({ initialSolutions, initialModuleData }: FooterProps) {
   const solutions = initialSolutions;
-  const platformData = initialPlatformData;
+  const moduleData = initialModuleData;
 
-  const platformLinks = [...platformData.core, ...platformData.tech];
+  const moduleLinks = [...moduleData.core, ...moduleData.tech];
 
   return (
     <footer className="w-full bg-white border-t border-gray-100 pt-16 pb-8 font-sans">
@@ -102,11 +102,11 @@ export default function Footer({ initialSolutions, initialPlatformData }: Footer
           </div>
 
           <div className="order-2 lg:order-3">
-            <h4 className="text-gray-900 font-semibold text-sm uppercase tracking-wider mb-4">Platform</h4>
+            <h4 className="text-gray-900 font-semibold text-sm uppercase tracking-wider mb-4">Modules</h4>
             <ul className="space-y-3">
-              {platformLinks.map((item) => (
+              {moduleLinks.map((item) => (
                 <li key={item.id}>
-                  <Link href={`/platform/${item.slug}`} className="text-gray-600 text-sm font-normal">
+                  <Link href={`/modules/${item.slug}`} className="text-gray-600 text-sm font-normal">
                     {item.title}
                   </Link>
                 </li>

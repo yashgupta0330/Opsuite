@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const page = await getCollectionPageBySlug('platforms', slug);
+    const page = await getCollectionPageBySlug('modules', slug);
     if (!page) return {};
 
     return {
@@ -14,9 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 
-export default async function PlatformPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ModulePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const page = await getCollectionPageBySlug('platforms', slug);
+    const page = await getCollectionPageBySlug('modules', slug);
 
     if (!page) {
         return notFound();

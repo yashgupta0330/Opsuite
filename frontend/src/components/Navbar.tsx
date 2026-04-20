@@ -1,6 +1,6 @@
 "use client";
 
-import { getPlatform, getSolutions, PlatformData, SolutionsData } from "@/lib/data";
+import { getModules, getSolutions, ModuleData, SolutionsData } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,7 +27,7 @@ interface MobileSubMenuPanelProps {
   activeMenu: null | "cso" | "mobility" | "core" | "tech" | "company";
   title: string;
   items: NavPage[];
-  hrefPrefix: "/solutions/" | "/platform/";
+  hrefPrefix: "/solutions/" | "/modules/";
   emptyMessage: string;
   onBack: () => void;
   onClose: () => void;
@@ -191,7 +191,7 @@ export const AnnouncementBanner = () => {
         {/* Middle Text - Hidden on mobile, visible on desktop */}
         <div className="hidden md:flex flex-1 justify-center">
           <p className="text-[12px] sm:text-[14px] md:text-[20px] leading-tight font-semibold text-center md:max-w-137.5 px-1">
-            ServitiumCRM is recognized as the Emerging Brand of the Year - Customer Service Platform
+            ServitiumCRM is recognized as the Emerging Brand of the Year - Customer Service Modules
           </p>
         </div>
 
@@ -230,10 +230,10 @@ export const AnnouncementBanner = () => {
 
 interface NavbarProps {
   initialSolutions?: SolutionsData;
-  initialPlatformData?: PlatformData;
+  initialModuleData?: ModuleData;
 }
 
-const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
+const Navbar = ({ initialSolutions, initialModuleData }: NavbarProps) => {
 
   const [navigationState, setNavigationState] =
     useState<NavigationState>("closed");
@@ -241,7 +241,7 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
     null | "cso" | "mobility" | "core" | "tech" | "company"
   >(null);
   const [activeDesktopMenu, setActiveDesktopMenu] = useState<
-    null | "solutions" | "platform" | "company"
+    null | "solutions" | "modules" | "company"
   >(null);
   const pathname = usePathname();
   const navbarRef = useRef<HTMLDivElement>(null);
@@ -254,11 +254,11 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
   );
 
   const [solutions, setSolutions] = useState<SolutionsData>(initialSolutions || { cso: [], mobility: [] });
-  const [platformData, setPlatformData] = useState<PlatformData>(initialPlatformData || { core: [], tech: [] });
+  const [moduleData, setModuleData] = useState<ModuleData>(initialModuleData || { core: [], tech: [] });
 
   useEffect(() => {
     async function fetchData() {
-      if (solutions.cso.length > 0 || platformData.core.length > 0) {
+      if (solutions.cso.length > 0 || moduleData.core.length > 0) {
         console.log("Navbar: Already have SSR data, skipping client fetch");
         return;
       }
@@ -266,12 +266,12 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
       const solData = await getSolutions();
       setSolutions(solData);
 
-      const platData = await getPlatform();
-      setPlatformData(platData);
+      const platData = await getModules();
+      setModuleData(platData);
     }
     fetchData();
-  }, [solutions, platformData]);
-  const [activePlatformTab, setActivePlatformTab] = useState<"core" | "tech">(
+  }, [solutions, moduleData]);
+  const [activeModuleTab, setActiveModuleTab] = useState<"core" | "tech">(
     "core",
   );
 
@@ -335,13 +335,13 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
     setMobileSubMenu(menu);
   const closeSubMenu = () => setMobileSubMenu(null);
 
-  const toggleDesktopMenu = (menu: "solutions" | "platform" | "company") => {
+  const toggleDesktopMenu = (menu: "solutions" | "modules" | "company") => {
     setActiveDesktopMenu(activeDesktopMenu === menu ? null : menu);
   };
 
   const renderDesktopGrid = (
     pages: NavPage[],
-    hrefPrefix: "/solutions/" | "/platform/",
+    hrefPrefix: "/solutions/" | "/modules/",
     emptyMessage: string,
   ) => (
     <div
@@ -390,15 +390,15 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
     {
       key: "core" as const,
       title: "Core Capabilities",
-      items: platformData.core as NavPage[],
-      hrefPrefix: "/platform/" as const,
+      items: moduleData.core as NavPage[],
+      hrefPrefix: "/modules/" as const,
       emptyMessage: "No core capabilities available.",
       renderItem: (page: NavPage) => (
         <div className="py-2">
           <FeatureItem
             title={page.title}
             description={page.shortDescription}
-            isActive={pathname === `/platform/${page.slug}`}
+            isActive={pathname === `/modules/${page.slug}`}
           />
         </div>
       ),
@@ -406,15 +406,15 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
     {
       key: "tech" as const,
       title: "Technology & Infrastructure",
-      items: platformData.tech as NavPage[],
-      hrefPrefix: "/platform/" as const,
+      items: moduleData.tech as NavPage[],
+      hrefPrefix: "/modules/" as const,
       emptyMessage: "No technology infrastructure available.",
       renderItem: (page: NavPage) => (
         <div className="py-2">
           <FeatureItem
             title={page.title}
             description={page.shortDescription}
-            isActive={pathname === `/platform/${page.slug}`}
+            isActive={pathname === `/modules/${page.slug}`}
           />
         </div>
       ),
@@ -436,7 +436,7 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
     },
   ];
 
-  const platformTabItems: SubMenuTrigger[] = [
+  const moduleTabItems: SubMenuTrigger[] = [
     {
       key: "core",
       label: "Core Capabilities",
@@ -482,16 +482,16 @@ const Navbar = ({ initialSolutions, initialPlatformData }: NavbarProps) => {
   ];
 
   const desktopDropdownItems: Array<{
-    key: "solutions" | "platform" | "company";
+    key: "solutions" | "modules" | "company";
     label: string;
   }> = [
     { key: "solutions", label: "Solutions" },
-    { key: "platform", label: "Platform" },
+    { key: "modules", label: "Modules" },
     { key: "company", label: "Company" },
   ];
 
   const renderDesktopDropdownToggle = (
-    menu: "solutions" | "platform" | "company",
+    menu: "solutions" | "modules" | "company",
     label: string,
   ) => (
     <button
@@ -648,12 +648,12 @@ ${navigationState !== "closed" ? "bg-white" : isScrolled ? "backdrop-blur-xl sat
               )}
             </li>
 
-            {/* Platform Dropdown - Hover Based */}
+            {/* Modules Dropdown - Hover Based */}
             <li className=" group">
               {renderDesktopDropdownToggle(desktopDropdownItems[1].key, desktopDropdownItems[1].label)}
 
-              {/* Platform Dropdown */}
-              {activeDesktopMenu === "platform" && (
+              {/* Modules Dropdown */}
+              {activeDesktopMenu === "modules" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-[45%] bg-white shadow-lg z-50 transition-all duration-200 w-286 rounded-xl border border-gray-200"
                 >
@@ -662,12 +662,12 @@ ${navigationState !== "closed" ? "bg-white" : isScrolled ? "backdrop-blur-xl sat
                     <div
                       className="py-4 lg:py-6 shrink-0 w-78.75 rounded-l-xl bg-[#F3F6FF]"
                     >
-                      {platformTabItems.map((item, idx) => (
+                      {moduleTabItems.map((item, idx) => (
                         <a
                           key={item.key}
                           href="#"
-                          onMouseEnter={() => setActivePlatformTab(item.key as "core" | "tech")}
-                          className={`flex items-center justify-between w-full py-3 px-6 rounded-none text-left whitespace-nowrap cursor-pointer font-semibold text-base leading-5 min-h-15 ${idx === 0 ? "mb-2" : ""} ${activePlatformTab === item.key
+                          onMouseEnter={() => setActiveModuleTab(item.key as "core" | "tech")}
+                          className={`flex items-center justify-between w-full py-3 px-6 rounded-none text-left whitespace-nowrap cursor-pointer font-semibold text-base leading-5 min-h-15 ${idx === 0 ? "mb-2" : ""} ${activeModuleTab === item.key
                             ? "bg-white text-[#011857]"
                             : "text-gray-700 hover:bg-white/50"
                             }`}
@@ -695,18 +695,18 @@ ${navigationState !== "closed" ? "bg-white" : isScrolled ? "backdrop-blur-xl sat
 
                     {/* Right Content */}
                     <div className="flex-1 py-8 pr-8 pl-4">
-                      {activePlatformTab === "core" && (
+                      {activeModuleTab === "core" && (
                         renderDesktopGrid(
-                          platformData.core as NavPage[],
-                          "/platform/",
+                          moduleData.core as NavPage[],
+                          "/modules/",
                           "No core capabilities available.",
                         )
                       )}
 
-                      {activePlatformTab === "tech" && (
+                      {activeModuleTab === "tech" && (
                         renderDesktopGrid(
-                          platformData.tech as NavPage[],
-                          "/platform/",
+                          moduleData.tech as NavPage[],
+                          "/modules/",
                           "No technology infrastructure available.",
                         )
                       )}
@@ -745,7 +745,7 @@ ${navigationState !== "closed" ? "bg-white" : isScrolled ? "backdrop-blur-xl sat
                         About Us
                       </h3>
                       <p className="nav-menu-desc ">
-                        Building intelligent service platforms that power scalable, customer-first operations.
+                        Building intelligent service Moduless that power scalable, customer-first operations.
                       </p>
                     </Link>
                     <Link
@@ -829,7 +829,7 @@ ${navigationState !== "closed" ? "bg-white" : isScrolled ? "backdrop-blur-xl sat
 
                   {[ 
                     { title: "Solutions", items: solutionTabItems },
-                    { title: "Platform", items: platformTabItems },
+                    { title: "modules", items: moduleTabItems },
                   ].map((group) => (
                     <li key={group.title}>
                       <p className="py-3 text-black font-semibold text-lg leading-snug">
