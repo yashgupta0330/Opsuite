@@ -127,6 +127,7 @@ export interface SectionsSideFeature extends Struct.ComponentSchema {
     imagePosition: Schema.Attribute.Enumeration<['left', 'right']>;
     sectionDescription: Schema.Attribute.Text;
     sectionTitle: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
   };
 }
 

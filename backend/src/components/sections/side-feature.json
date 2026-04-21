@@ -12,6 +12,9 @@
         "sectionDescription": {
             "type": "text"
         },
+        "subTitle": {
+            "type": "string"
+        },
         "image": {
             "allowedTypes": [
                 "images",
