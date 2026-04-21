@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "badgeText": {
+      "type": "string"
+    },
     "title": {
       "type": "string"
     },

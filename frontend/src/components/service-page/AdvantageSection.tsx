@@ -5,30 +5,30 @@ interface AdvantageSectionProps {
     __component: string;
     title: string;
     description?: string;
-    badge?: string;
+    badgeText?: string;
 }
 
 const AdvantageSection: React.FC<AdvantageSectionProps> = ({
     title,
     description,
-    badge
+    badgeText
 }) => {
     return (
-        <section className="bg-white self-stretch flex flex-col items-center py-20">
+        <section className="bg-white self-stretch flex flex-col items-center py-16 md:py-24">
             <div className="container-fluid">
                 <div className="flex flex-col items-center text-center">
-                    {badge && (
+                    {badgeText && (
                         <div className="mb-6">
-                            <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-cyan-200 bg-cyan-50/50 text-cyan-700 text-xs font-bold uppercase tracking-wider">
-                                {badge}
+                            <span className="inline-block px-4 py-1.5 text-sm font-medium border border-[#A6E8EE] bg-[#F0FBFC] text-[#1D1D1F] rounded-full shadow-sm">
+                                {badgeText}
                             </span>
                         </div>
                     )}
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#18191D] mb-6 leading-tight max-w-4xl">
+                    <h2 className="heading-1 mb-8 max-w-[900px] leading-[1.1]">
                         {title}
                     </h2>
                     {description && (
-                        <p className="sub-description md:max-w-[70%] text-lg text-gray-500">
+                        <p className="sub-description max-w-[800px] mx-auto">
                             {description}
                         </p>
                     )}

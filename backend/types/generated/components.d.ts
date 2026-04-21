@@ -6,6 +6,7 @@ export interface SectionsAdvantageSection extends Struct.ComponentSchema {
     displayName: 'Advantage section';
   };
   attributes: {
+    badgeText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
