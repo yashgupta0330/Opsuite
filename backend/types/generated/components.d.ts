@@ -111,6 +111,7 @@ export interface SectionsNumberedBenefits extends Struct.ComponentSchema {
     displayName: 'Numbered Benefits';
   };
   attributes: {
+    chip: Schema.Attribute.String;
     items: Schema.Attribute.Component<'shared.benefit-item', true>;
     sectionDescription: Schema.Attribute.Text;
     sectionTitle: Schema.Attribute.String;

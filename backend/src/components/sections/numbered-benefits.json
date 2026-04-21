@@ -6,6 +6,9 @@
     },
     "options": {},
     "attributes": {
+        "chip": {
+            "type": "string"
+        },
         "sectionTitle": {
             "type": "string"
         },

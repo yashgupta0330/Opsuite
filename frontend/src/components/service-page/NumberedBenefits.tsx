@@ -9,6 +9,7 @@ interface BenefitItem {
 }
 
 interface NumberedBenefitsProps {
+    chip?: string;
     sectionTitle: string;
     sectionDescription?: string;
     items: BenefitItem[];
@@ -16,6 +17,7 @@ interface NumberedBenefitsProps {
 }
 
 const NumberedBenefits: React.FC<NumberedBenefitsProps> = ({
+    chip,
     sectionTitle,
     sectionDescription,
     items,
@@ -23,7 +25,12 @@ const NumberedBenefits: React.FC<NumberedBenefitsProps> = ({
     return (
         <section className="container-fluid ">
             {/* Heading Area */}
-            <div className=" mb-10 md:mb-16 ">
+            <div className=" mb-10 md:mb-16 flex flex-col items-center">
+                {chip && (
+                    <span className="badge-theme">
+                        {chip}
+                    </span>
+                )}
                 <h2 className="heading-2 mb-4 text-center">
                     {sectionTitle}
                 </h2>
