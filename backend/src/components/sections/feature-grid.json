@@ -12,6 +12,16 @@
         "sectionDescription": {
             "type": "text"
         },
+        "badgeText": {
+            "type": "string"
+        },
+        "bgImage": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false
+        },
         "cards": {
             "type": "component",
             "repeatable": true,

@@ -45,6 +45,8 @@ export interface SectionsFeatureGrid extends Struct.ComponentSchema {
     displayName: 'Feature Grid';
   };
   attributes: {
+    badgeText: Schema.Attribute.String;
+    bgImage: Schema.Attribute.Media<'images'>;
     cards: Schema.Attribute.Component<'shared.grid-card', true>;
     sectionDescription: Schema.Attribute.Text;
     sectionTitle: Schema.Attribute.String;

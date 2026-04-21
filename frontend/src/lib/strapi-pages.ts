@@ -39,6 +39,7 @@ function appendCommonSectionPopulate(params: URLSearchParams) {
         ['populate[sections][on][sections.feature-highlights][populate][summaryItems][populate][icon][fields][0]', 'url'],
         ['populate[sections][on][sections.side-feature][populate][features][populate][icon][fields][0]', 'url'],
         ['populate[sections][on][sections.side-feature][populate][image][fields][0]', 'url'],
+        ['populate[sections][on][sections.feature-grid][populate][bgImage][fields][0]', 'url'],
         ['populate[sections][on][sections.feature-grid][populate][cards][populate][image][fields][0]', 'url'],
         ['populate[sections][on][sections.numbered-benefits][populate]', '*'],
         ['populate[sections][on][sections.testimonial-banner][populate][testimonial][populate][logo][fields][0]', 'url'],
