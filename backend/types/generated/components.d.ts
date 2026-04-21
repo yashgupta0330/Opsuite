@@ -25,6 +25,19 @@ export interface SectionsContactSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsDetailedFeatures extends Struct.ComponentSchema {
+  collectionName: 'components_sections_detailed_features';
+  info: {
+    description: 'A section displaying cards with detailed feature lists';
+    displayName: 'Detailed Features';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'shared.feature-box-card', true>;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsFeatureGrid extends Struct.ComponentSchema {
   collectionName: 'components_sections_feature_grids';
   info: {
@@ -138,6 +151,20 @@ export interface SharedComparisonCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFeatureBoxCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_feature_box_cards';
+  info: {
+    description: 'Card with title, description and a highlighted box of features';
+    displayName: 'Feature Box Card';
+  };
+  attributes: {
+    boxItems: Schema.Attribute.Component<'shared.list-item', true>;
+    boxTitle: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFeaturePoint extends Struct.ComponentSchema {
   collectionName: 'components_shared_feature_points';
   info: {
@@ -233,6 +260,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'sections.advantage-section': SectionsAdvantageSection;
       'sections.contact-section': SectionsContactSection;
+      'sections.detailed-features': SectionsDetailedFeatures;
       'sections.feature-grid': SectionsFeatureGrid;
       'sections.feature-highlights': SectionsFeatureHighlights;
       'sections.hero': SectionsHero;
@@ -241,6 +269,7 @@ declare module '@strapi/strapi' {
       'sections.testimonial-banner': SectionsTestimonialBanner;
       'shared.benefit-item': SharedBenefitItem;
       'shared.comparison-card': SharedComparisonCard;
+      'shared.feature-box-card': SharedFeatureBoxCard;
       'shared.feature-point': SharedFeaturePoint;
       'shared.grid-card': SharedGridCard;
       'shared.highlight-item': SharedHighlightItem;

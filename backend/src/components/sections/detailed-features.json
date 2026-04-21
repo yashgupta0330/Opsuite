@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_detailed_features",
+  "info": {
+    "displayName": "Detailed Features",
+    "description": "A section displaying cards with detailed feature lists"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-box-card"
+    }
+  }
+}

@@ -45,6 +45,7 @@ function appendCommonSectionPopulate(params: URLSearchParams) {
         ['populate[sections][on][sections.testimonial-banner][populate][testimonial][populate][authorImage][fields][0]', 'url'],
         ['populate[sections][on][sections.testimonial-banner][populate][testimonial][fields]', '*'],
         ['populate[sections][on][sections.contact-section][populate][featuresList][populate][icon][fields][0]', 'url'],
+        ['populate[sections][on][sections.detailed-features][populate][cards][populate]', '*'],
     ];
 
     for (const [key, value] of populateEntries) {

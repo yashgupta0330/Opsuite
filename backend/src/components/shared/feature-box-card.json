@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_feature_box_cards",
+  "info": {
+    "displayName": "Feature Box Card",
+    "description": "Card with title, description and a highlighted box of features"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "boxTitle": {
+      "type": "string"
+    },
+    "boxItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.list-item"
+    }
+  }
+}

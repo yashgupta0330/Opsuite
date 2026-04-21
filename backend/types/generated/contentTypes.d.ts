@@ -718,6 +718,7 @@ export interface ApiServicePageServicePage extends Struct.CollectionTypeSchema {
         'sections.testimonial-banner',
         'sections.contact-section',
         'sections.advantage-section',
+        'sections.detailed-features',
       ]
     >;
     shortDescription: Schema.Attribute.Text;

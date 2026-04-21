@@ -2,6 +2,7 @@ import React from 'react';
 
 import AdvantageSection from './AdvantageSection';
 import ContactSection from './ContactSection';
+import DetailedFeatures from './DetailedFeatures';
 import FeatureGrid from './FeatureGrid';
 import FeatureHighlights from './FeatureHighlights';
 import Hero from './Hero';
@@ -26,6 +27,7 @@ const sectionComponents: { [key: string]: React.ComponentType<any> } = {
     'sections.numbered-benefits': NumberedBenefits,
     'sections.testimonial-banner': TestimonialBanner,
     'sections.contact-section': ContactSection,
+    'sections.detailed-features': DetailedFeatures,
 };
 
 interface SectionRendererProps {
