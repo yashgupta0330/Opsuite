@@ -6,7 +6,17 @@ export function getStrapiURL(path = '') {
     return `${baseUrl}/api${path}`;
 }
 
-export function getStrapiMedia(url: string | null) {
+export function getStrapiMedia(urlData: any) {
+    if (!urlData) {
+        return null;
+    }
+
+    // Extract URL if it's an object (Strapi v4/v5 format)
+    let url = typeof urlData === 'string' ? urlData : null;
+    if (!url && typeof urlData === 'object') {
+        url = urlData.url || urlData.data?.attributes?.url || null;
+    }
+
     if (!url) {
         return null;
     }

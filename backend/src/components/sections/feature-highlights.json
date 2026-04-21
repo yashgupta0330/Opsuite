@@ -1,21 +1,31 @@
 {
-    "collectionName": "components_sections_feature_highlights",
-    "info": {
-        "displayName": "Feature Highlights",
-        "description": ""
+  "collectionName": "components_sections_feature_highlights",
+  "info": {
+    "displayName": "Feature Highlights",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "badgeText": {
+      "type": "string"
     },
-    "options": {},
-    "attributes": {
-        "sectionTitle": {
-            "type": "string"
-        },
-        "sectionDescription": {
-            "type": "text"
-        },
-        "highlights": {
-            "type": "component",
-            "repeatable": true,
-            "component": "shared.highlight-item"
-        }
+    "sectionTitle": {
+      "type": "string"
+    },
+    "beforeCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.comparison-card"
+    },
+    "afterCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.comparison-card"
+    },
+    "summaryItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summary-item"
     }
+  }
 }

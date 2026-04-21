@@ -44,9 +44,11 @@ export interface SectionsFeatureHighlights extends Struct.ComponentSchema {
     displayName: 'Feature Highlights';
   };
   attributes: {
-    highlights: Schema.Attribute.Component<'shared.highlight-item', true>;
-    sectionDescription: Schema.Attribute.Text;
+    afterCard: Schema.Attribute.Component<'shared.comparison-card', false>;
+    badgeText: Schema.Attribute.String;
+    beforeCard: Schema.Attribute.Component<'shared.comparison-card', false>;
     sectionTitle: Schema.Attribute.String;
+    summaryItems: Schema.Attribute.Component<'shared.summary-item', true>;
   };
 }
 
@@ -117,6 +119,20 @@ export interface SharedBenefitItem extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     number: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedComparisonCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_comparison_cards';
+  info: {
+    description: '';
+    displayName: 'Comparison Card';
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    icon: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'shared.highlight-item', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -199,6 +215,18 @@ export interface SharedStatItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSummaryItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_summary_items';
+  info: {
+    description: '';
+    displayName: 'Summary Item';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    text: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -211,12 +239,14 @@ declare module '@strapi/strapi' {
       'sections.side-feature': SectionsSideFeature;
       'sections.testimonial-banner': SectionsTestimonialBanner;
       'shared.benefit-item': SharedBenefitItem;
+      'shared.comparison-card': SharedComparisonCard;
       'shared.feature-point': SharedFeaturePoint;
       'shared.grid-card': SharedGridCard;
       'shared.highlight-item': SharedHighlightItem;
       'shared.list-item': SharedListItem;
       'shared.sidebar-info': SharedSidebarInfo;
       'shared.stat-item': SharedStatItem;
+      'shared.summary-item': SharedSummaryItem;
     }
   }
 }

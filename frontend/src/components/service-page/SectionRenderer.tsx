@@ -58,7 +58,7 @@ export default function SectionRenderer({ sections, themeColor }: SectionRendere
 
                 return (
                     <Component
-                        key={section.id ?? `${section.__component}-${index}`}
+                        key={`${section.__component}-${section.id ?? index}-${index}`}
                         {...section}
                         {...extraProps}
                     />
