@@ -664,6 +664,8 @@ export interface ApiModuleModule extends Struct.CollectionTypeSchema {
         'sections.testimonial-banner',
         'sections.contact-section',
         'sections.advantage-section',
+        'sections.detailed-features',
+        'sections.impact-section',
       ]
     >;
     shortDescription: Schema.Attribute.Text;
@@ -719,6 +721,7 @@ export interface ApiServicePageServicePage extends Struct.CollectionTypeSchema {
         'sections.contact-section',
         'sections.advantage-section',
         'sections.detailed-features',
+        'sections.impact-section',
       ]
     >;
     shortDescription: Schema.Attribute.Text;

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_impact_sections",
+  "info": {
+    "displayName": "Impact Section",
+    "description": "A section showing impact metrics and cards"
+  },
+  "options": {},
+  "attributes": {
+    "badgeText": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.impact-card",
+      "min": 1,
+      "max": 4
+    }
+  }
+}

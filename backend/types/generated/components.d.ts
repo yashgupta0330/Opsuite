@@ -82,6 +82,26 @@ export interface SectionsHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsImpactSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_impact_sections';
+  info: {
+    description: 'A section showing impact metrics and cards';
+    displayName: 'Impact Section';
+  };
+  attributes: {
+    badgeText: Schema.Attribute.String;
+    cards: Schema.Attribute.Component<'shared.impact-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsNumberedBenefits extends Struct.ComponentSchema {
   collectionName: 'components_sections_numbered_benefits';
   info: {
@@ -206,6 +226,24 @@ export interface SharedHighlightItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedImpactCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_impact_cards';
+  info: {
+    description: 'Card showing impact metrics with specific color schemes';
+    displayName: 'Impact Card';
+  };
+  attributes: {
+    colorScheme: Schema.Attribute.Enumeration<
+      ['cyan', 'pink', 'yellow', 'green']
+    > &
+      Schema.Attribute.DefaultTo<'cyan'>;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    metric: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedListItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_list_items';
   info: {
@@ -264,6 +302,7 @@ declare module '@strapi/strapi' {
       'sections.feature-grid': SectionsFeatureGrid;
       'sections.feature-highlights': SectionsFeatureHighlights;
       'sections.hero': SectionsHero;
+      'sections.impact-section': SectionsImpactSection;
       'sections.numbered-benefits': SectionsNumberedBenefits;
       'sections.side-feature': SectionsSideFeature;
       'sections.testimonial-banner': SectionsTestimonialBanner;
@@ -273,6 +312,7 @@ declare module '@strapi/strapi' {
       'shared.feature-point': SharedFeaturePoint;
       'shared.grid-card': SharedGridCard;
       'shared.highlight-item': SharedHighlightItem;
+      'shared.impact-card': SharedImpactCard;
       'shared.list-item': SharedListItem;
       'shared.sidebar-info': SharedSidebarInfo;
       'shared.stat-item': SharedStatItem;

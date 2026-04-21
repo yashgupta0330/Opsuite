@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_impact_cards",
+  "info": {
+    "displayName": "Impact Card",
+    "description": "Card showing impact metrics with specific color schemes"
+  },
+  "options": {},
+  "attributes": {
+    "metric": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "colorScheme": {
+      "type": "enumeration",
+      "enum": [
+        "cyan",
+        "pink",
+        "yellow",
+        "green"
+      ],
+      "default": "cyan"
+    }
+  }
+}

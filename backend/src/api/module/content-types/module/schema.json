@@ -57,7 +57,8 @@
         "sections.testimonial-banner",
         "sections.contact-section",
         "sections.advantage-section",
-        "sections.detailed-features"
+        "sections.detailed-features",
+        "sections.impact-section"
       ]
     }
   }

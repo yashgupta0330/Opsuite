@@ -5,17 +5,32 @@ import Image from 'next/image';
 import React from 'react';
 
 
+interface StrapiMedia {
+    url?: string;
+    data?: {
+        id: number;
+        attributes: {
+            url: string;
+            name?: string;
+            alternativeText?: string;
+        };
+    } | null;
+    attributes?: {
+        url: string;
+    };
+}
+
 interface FeaturePoint {
     id: number;
     title: string;
     description: string;
-    icon: any;
+    icon: StrapiMedia | any;
 }
 
 interface SideFeatureProps {
     sectionTitle: string;
     sectionDescription?: string;
-    image: any;
+    image: StrapiMedia | any;
     imagePosition: 'left' | 'right';
     features: FeaturePoint[];
     themeColor?: string;
@@ -88,7 +103,7 @@ const SideFeature: React.FC<SideFeatureProps> = ({
                     <div className="industry-list">
                         {features.map((item) => {
                             const iconData = item.icon?.data?.attributes || item.icon?.attributes || item.icon?.data || item.icon;
-                            const iconUrl = getStrapiMedia(iconData?.url);
+                            const iconUrl = getStrapiMedia(iconData);
                             return (
                                 <div key={item.id} className="flex gap-2 group items-start">
                                     <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center">
