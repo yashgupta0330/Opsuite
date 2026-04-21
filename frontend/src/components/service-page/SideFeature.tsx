@@ -24,14 +24,14 @@ interface FeaturePoint {
     id: number;
     title: string;
     description: string;
-    icon: StrapiMedia | any;
+    icon?: StrapiMedia | null;
 }
 
 interface SideFeatureProps {
     sectionTitle: string;
     sectionDescription?: string;
     subTitle?: string;
-    image: StrapiMedia | any;
+    image: StrapiMedia | null;
     imagePosition: 'left' | 'right';
     features: FeaturePoint[];
     themeColor?: string;
