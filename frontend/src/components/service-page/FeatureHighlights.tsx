@@ -4,24 +4,35 @@ import { getStrapiMedia } from '@/lib/strapi-helper';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
+interface StrapiMedia {
+    id?: number;
+    url?: string;
+    data?: {
+        id?: number;
+        attributes?: {
+            url?: string;
+        };
+    };
+}
+
 interface HighlightListItem {
     id: number;
     title: string;
     description: string;
-    icon?: any;
+    icon?: StrapiMedia | null;
 }
 
 interface ComparisonCard {
     title: string;
-    bgImage?: any;
-    icon?: any;
+    bgImage?: StrapiMedia | null;
+    icon?: StrapiMedia | null;
     items: HighlightListItem[];
 }
 
 interface SummaryItem {
     id: number;
     text: string;
-    icon?: any;
+    icon?: StrapiMedia | null;
 }
 
 interface FeatureHighlightsProps {
